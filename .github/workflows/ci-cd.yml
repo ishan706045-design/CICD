@@ -1,51 +1,60 @@
-name: CI/CD
+name: Deploy Node.js Backend to Cloud Run via Artifact Registry
 
 on:
   push:
-    branches: [main]
-
-env:
-  REGION: europe-west1
-  SERVICE: my-node-express-app
+    branches:
+      - dev  # deploy on push to main branch
 
 jobs:
-  build-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
-
-      - name: Build TypeScript
-        run: npm run build
-
-      - name: Build Docker image
-        run: docker build -t europe-west1-docker.pkg.dev/${{ env.GCP_PROJECT }}/${{ env.SERVICE }}/${{ env.SERVICE }}:${{ github.sha }} .
-
+      # 2️⃣ Authenticate to Google Cloud via Workload Identity
       - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
+        uses: google-github-actions/auth@v1
         with:
-          credentials_json: ${{ env.GCP_SA_KEY }}
+          workload_identity_provider: "https://iam.googleapis.com/projects/850598628220/locations/global/workloadIdentityPools/github-demo/providers/github"
+          service_account: "github-ci@learning-cloud-472014.iam.gserviceaccount.com"
 
+      # 3️⃣ Set up gcloud SDK
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: learning-cloud-472014
+          export_default_credentials: true
+
+      # 4️⃣ Configure Docker to use Artifact Registry
       - name: Configure Docker for Artifact Registry
-        run: gcloud auth configure-docker europe-west1-docker.pkg.dev
+        run: |
+          gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
 
+      # 5️⃣ Build Docker image
+      - name: Build Docker image
+        run: |
+          IMAGE="asia-south1-docker.pkg.dev/learning-cloud-472014/github/textuned-mvp-backend:${GITHUB_SHA}"
+          docker build -t $IMAGE .
+
+      # 6️⃣ Push Docker image to Artifact Registry
       - name: Push Docker image
-        run: docker push europe-west1-docker.pkg.dev/${{ env.GCP_PROJECT }}/${{ env.SERVICE }}/${{ env.SERVICE }}:${{ github.sha }}
+        run: |
+          IMAGE="asia-south1-docker.pkg.dev/learning-cloud-472014/github/textuned-mvp-backend:${GITHUB_SHA}"
+          docker push $IMAGE
 
+      # 7️⃣ Deploy Cloud Run using pushed image
       - name: Deploy to Cloud Run
-        uses: google-github-actions/deploy-cloudrun@v2
-        with:
-          service: ${{ env.SERVICE }}
-          image: europe-west1-docker.pkg.dev/${{ env.GCP_PROJECT }}/${{ env.SERVICE }}/${{ env.SERVICE }}:${{ github.sha }}
-          region: ${{ env.REGION }}
+        run: |
+          IMAGE="asia-south1-docker.pkg.dev/learning-cloud-472014/github/textuned-mvp-backend:${GITHUB_SHA}"
+          gcloud run deploy textuned-mvp-backend \
+            --image $IMAGE \
+            --region asia-south1 \
+            --platform managed \
+            --allow-unauthenticated \
+            --set-env-vars PORT=8080,ENV=dev,PROJECT_ID=textuned-mvp-backend,GCP_REGION=asia-south1,HMAC_MASTER_SECRET=35c428140c2acf7f01a1a2fb9be2db5b952472f44038b044dec5fa5d556aff5d
