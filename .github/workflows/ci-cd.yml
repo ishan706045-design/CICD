@@ -62,4 +62,4 @@ jobs:
             --region asia-south1 \
             --platform managed \
             --allow-unauthenticated \
-            --set-env-vars PORT=8080,ENV=dev,PROJECT_ID=textuned-mvp-backend,GCP_REGION=asia-south1,HMAC_MASTER_SECRET=35c428140c2acf7f01a1a2fb9be2db5b952472f44038b044dec5fa5d556aff5d
+            --set-env-vars ENV=dev,PROJECT_ID=textuned-mvp-backend,GCP_REGION=asia-south1,HMAC_MASTER_SECRET=35c428140c2acf7f01a1a2fb9be2db5b952472f44038b044dec5fa5d556aff5d
