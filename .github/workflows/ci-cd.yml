@@ -18,6 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Debug OIDC Token
+        run: |
+          echo "Token URL: $ACTIONS_ID_TOKEN_REQUEST_URL"
+          echo "Token Request Token: $ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+
       # 2️⃣ Authenticate to Google Cloud via Workload Identity
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
