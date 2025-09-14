@@ -35,7 +35,6 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: learning-cloud-472014
-          export_default_credentials: true
 
       # 4️⃣ Configure Docker to use Artifact Registry
       - name: Configure Docker for Artifact Registry
