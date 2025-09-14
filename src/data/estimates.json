@@ -1,0 +1,125 @@
+[
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "glow",
+    "wordsEstimate": 10,
+    "targets": [
+      "fr",
+      "de"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T12:22:35.853Z",
+    "createdAt": "2025-09-08T12:22:35.855Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "glow",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr",
+      "de"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T12:29:06.810Z",
+    "createdAt": "2025-09-08T12:29:06.810Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "glow",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr",
+      "de"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T13:10:14.201Z",
+    "createdAt": "2025-09-08T13:10:14.202Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "glow",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr",
+      "de"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T13:15:37.715Z",
+    "createdAt": "2025-09-08T13:15:37.715Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "glow",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr",
+      "de"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T13:17:07.973Z",
+    "createdAt": "2025-09-08T13:17:07.974Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "glow",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr",
+      "de"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T13:18:01.135Z",
+    "createdAt": "2025-09-08T13:18:01.137Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "kickstart",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T13:26:23.767Z",
+    "createdAt": "2025-09-08T13:26:23.768Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "kickstart",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-08T13:26:43.258Z",
+    "createdAt": "2025-09-08T13:26:43.259Z"
+  },
+  {
+    "apiKey": "dev-key-1",
+    "tenant": "Dev Tenant",
+    "plan": "kickstart",
+    "wordsEstimate": 20,
+    "targets": [
+      "fr"
+    ],
+    "creditsRequired": 1,
+    "overQuota": false,
+    "timestamp": "2025-09-09T06:54:04.300Z",
+    "createdAt": "2025-09-09T06:54:04.300Z"
+  }
+]

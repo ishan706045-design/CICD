@@ -1,0 +1,23 @@
+{
+  "dev-key-1": {
+    "apiSecret": "dev-secret-1",
+    "name": "Dev Tenant",
+    "plan": "kickstart",
+    "usedWords": 0,
+    "domain": "localhost"
+  },
+  "clientA-key": {
+    "apiSecret": "clientA-secret",
+    "name": "Client A",
+    "plan": "kickstart",
+    "usedWords": 0,
+    "domain": "clienta.com"
+  },
+  "qaA-key": {
+    "apiSecret": "qaA-secret",
+    "name": "Client A",
+    "plan": "kickstart",
+    "usedWords": 0,
+    "domain": "clienta.com"
+  }
+}

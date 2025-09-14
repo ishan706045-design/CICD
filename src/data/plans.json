@@ -1,0 +1,48 @@
+{
+  "kickstart": {
+    "name": "Kickstart",
+    "monthlyPrice": 0,
+    "words": 2000,
+    "languages": 1,
+    "rollover": false,
+    "topups": false,
+    "fallback_rate": 0.06,
+    "words_per_credit": 100
+  },
+  "glow": {
+    "name": "Glow",
+    "monthlyPrice": 25,
+    "words": 50000,
+    "languages": 3,
+    "rollover": true,
+    "topups": true,
+    "words_per_credit": 100
+  },
+  "boost": {
+    "name": "Boost",
+    "monthlyPrice": 79,
+    "words": 200000,
+    "languages": 5,
+    "rollover": true,
+    "topups": true,
+    "words_per_credit": 100
+  },
+  "blaze": {
+    "name": "Blaze",
+    "monthlyPrice": 199,
+    "words": 1000000,
+    "languages": 10,
+    "rollover": true,
+    "topups": true,
+    "words_per_credit": 100
+  },
+  "legend": {
+    "name": "Legend",
+    "monthlyPrice": "contract",
+    "words": "unlimited",
+    "languages": "unlimited",
+    "rollover": true,
+    "topups": true,
+    "words_per_credit": 100
+  }
+}
