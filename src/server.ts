@@ -49,6 +49,10 @@ app.get("/whoami", async (req, res) => {
   }
 });
 
+app.get("/lee", (_, res) => {
+  res.json({ status: "ok", uptime: "LEeeeee chala deya" });
+});
+
 /** Just to test seeds in prod env as we do not have permission in local */
 // app.get("/seeds",async (req:Request,res:Response)=>{
 //   try {
